@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>Baby Countdown 😜</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #timer {
+      font-size: 24px;
+      margin: 20px;
+    }
+
+    #rem {
+      font-size: 24px;
+      margin: 20px;
+    }
+
+    #message {
+      font-size: 36px;
+      color: #e74c3c;
+      margin: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer"></div>
+  <div id="rem">remaining</div>
+  <div id="message">Happy Birthday!</div>
+
+  <script>
+    // Set the target birthday date (year, month (0-based), day, hour, minute, second)
+    const birthday = new Date(2023, 7, 24, 23, 59, 59); // August 25, 2023
+
+    const timerElement = document.getElementById('timer');
+    const messageElement = document.getElementById('message');
+    const remElement = document.getElementById('rem');
+
+    function updateTimer() {
+      const now = new Date();
+      const timeLeft = birthday - now;
+
+      if (timeLeft <= 0) {
+        // Timer has expired, show the birthday message
+        timerElement.style.display = 'none';
+        remElement.style.display = 'none';
+        messageElement.style.display = 'block';
+      } else {
+        // Calculate days, hours, minutes, and seconds left
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Update the timer element
+        timerElement.innerHTML = `${days} day${days === 1 ? '' : 's'} ${hours} hour${hours === 1 ? '' : 's'} ${minutes} minute${minutes === 1 ? '' : 's'} ${seconds} second${seconds === 1 ? '' : 's'}`;
+      }
+    }
+
+    // Update the timer every second
+    setInterval(updateTimer, 1000);
+
+    // Initial call to set up the timer
+    updateTimer();
+  </script>
+</body>
+</html>
