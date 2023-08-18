@@ -9,16 +9,21 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      justify-content: center;
     }
 
     #timer {
-      font-size: 24px;
+      font-size: 44px;
       margin: 20px;
+      color: #FF10F0;
+      font-weight: bold;
     }
 
     #rem {
-      font-size: 24px;
+      font-size: 44px;
       margin: 20px;
+      color: #800080;
+      font-weight: bold;
     }
 
     #message {
@@ -32,10 +37,9 @@
 <body>
   <div id="timer"></div>
   <div id="rem">remaining</div>
-  <div id="message">Happy Birthday!!</div>
+  <div id="message">Happy Birthday!</div>
 
   <script>
-      
     // Set the target birthday date (year, month (0-based), day, hour, minute, second)
     const birthday = new Date(2023, 7, 24, 23, 59, 59); // August 25, 2023
 
