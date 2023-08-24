@@ -2,70 +2,234 @@
 <html>
 <head>
     <meta charset="UTF-8">
-  <title>Baby Countdown 😜</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-    }
+    <title>Baby Countdown 😜</title>
+    <style>
+body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            background-color: #30D5C8;
+        }
 
-    #timer {
-      font-size: 44px;
-      margin: 20px;
-      color: #FF10F0;
-      font-weight: bold;
-    }
+        #timer {
+            font-size: 44px;
+            margin: 20px;
+            color: #FF10F0;
+            font-weight: bold;
+        }
+        #rem {
+            font-size: 44px;
+            margin: 20px;
+            color: #FF10F0;
+            font-weight: bold;
+        }
 
-    #rem {
-      font-size: 44px;
-      margin: 20px;
-      color: #800080;
-      font-weight: bold;
-    }
+        /* Styles for the birthday message */
+        #message {
+            font-size: 55px;
+            color: #800080;
+            margin: 10px;
+            font-weight: bold;
+            display: none; /* Hide the message initially */
+        }
 
-    #message {
-      font-size: 36px;
-      color: #e74c3c;
-      margin: 20px;
-      display: none;
-    }
-  </style>
+        /* Styles for the birthday cake image */
+        #cake {
+            max-width: 400px;
+            margin: 20px auto;
+            display: none; /* Hide the cake image initially */
+        }
+/* Styles for the photo gallery */
+#gallery {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling if the screen is too narrow */
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    justify-content: flex-start; /* Start new items at the beginning of the row */
+    align-items: center;
+    display: none;
+}
+
+.gallery-item {
+    margin: 10px;
+    border: 2px solid #FF10F0;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 200px; /* Set a common width for all gallery items */
+    height: auto; /* Allow images to adjust their height based on the width */
+    display: inline-block; /* Display items inline (horizontally) */
+}
+
+
+
+.gallery-item img {
+
+    width: 200px; /* Set a common width for all gallery images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* .gallery-item img {
+            width: 100%;
+            height: auto;
+        } */
+        #bdaymessg{
+            display: none;
+        }
+        p{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+
+        /* ... (Previous CSS styles) ... */
+
+        /* Define a scale animation */
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Apply animation to message and cake elements */
+        #message.show-animation {
+            display: block;
+            animation: scaleUp 1s ease forwards;
+        }
+
+        #cake.show-animation {
+            display: block;
+            animation: scaleUp 1s ease forwards;
+        }
+
+        /* Modify birthday message paragraph */
+        #bday-paragraph {
+            font-size: 18px;
+            color: #333;
+        }
+
+        #bday-paragraph img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+            animation: heartBeat 1s ease infinite; /* Add a heartbeat animation to the heart emoji */
+        }
+
+        /* Define heartbeat animation */
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #wish{
+            font-weight: bold;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div id="timer"></div>
-  <div id="rem">remaining</div>
-  <div id="message">Happy Birthday!</div>
+<div id="timer"></div>
+<div id="rem">remaining</div><br><br>
+<div id="bdaymessg">
+    <div id="message" class="show-animation">🎉 Happy 25th Birthday🎂</div>
+    <div id="message" class="show-animation">Zahra!</div>
+    <img id="cake" class="show-animation" src="WhatsApp_Image_2023-08-24_at_8.14.52_PM-removebg-preview.png" alt="Birthday Cake">
+</div>
+<div id="wish" style="background-color: #6efafb; padding: 10px; text-align: center; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);">
+    <p id="bday-paragraph">
+        💖 Happy Birthday! 🎉🎂 On this special day, I want you to know just how much you mean to me.
+        You are not just the love of my life, but my best friend, confidant, and the person who makes every day brighter.
+        As we continue this incredible journey together, I'm reminded of how lucky I am to have you by my side.
+    </p>
 
-  <script>
+    <p id="bday-paragraph">
+        May this year be filled with joy, laughter, and unforgettable moments. Let's cherish each day and look forward to a future filled with love, adventures, and endless happiness.
+    </p>
+
+    <p id="bday-paragraph">
+        Here's to another year of growing together, making memories, and building a beautiful life as a team. I love you more than words can express, and I can't wait to celebrate many more birthdays with you. Happy Birthday, my future forever! 💖
+    </p>
+</div><br>
+<div id="gallery">
+    <!-- Photo 1 -->
+    
+    <!-- Photo 2 -->
+    <div class="gallery-item" data-message="A beautiful Saint">
+        <img src="20230618_143824.jpg" alt="Photo 2">
+    </div>
+    
+    <!-- Photo 3 -->
+    <div class="gallery-item" data-message="4th Jamadil Awwal! 26yrs of pagalpan">
+        <img src="20221127_152847.jpg" alt="Photo 2">
+    </div>
+    
+    <!-- Photo 4 -->
+    <div class="gallery-item" data-message="A Cute Face !!!!">
+        <img src="20230429_215551.jpg" alt="Photo 2">
+    </div>
+    
+    <!-- Photo 5 -->
+    <div class="gallery-item" data-message="Litle Bhukkad 🤪">
+        <img src="20230618_192557.jpg" alt="Photo 2">
+    </div>
+    
+    <!-- Add more photos as needed -->
+</div>
+
+<script>
     // Set the target birthday date (year, month (0-based), day, hour, minute, second)
     const birthday = new Date(2023, 7, 24, 23, 59, 59); // August 25, 2023
 
     const timerElement = document.getElementById('timer');
-    const messageElement = document.getElementById('message');
     const remElement = document.getElementById('rem');
+    const messageElement = document.getElementById('message');
+    const cakeElement = document.getElementById('cake');
+    const galleryElement = document.getElementById('gallery');
+    const bdayElement = document.getElementById('bdaymessg');
+    const wishElement = document.getElementById('wish');
 
     function updateTimer() {
-      const now = new Date();
-      const timeLeft = birthday - now;
+        const now = new Date();
+        const timeLeft = birthday - now;
 
-      if (timeLeft <= 0) {
-        // Timer has expired, show the birthday message
-        timerElement.style.display = 'none';
-        remElement.style.display = 'none';
-        messageElement.style.display = 'block';
-      } else {
-        // Calculate days, hours, minutes, and seconds left
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        if (timeLeft <= 0) {
+            // Timer has expired, hide the timer and "remaining" text
+            timerElement.style.display = 'none';
+            remElement.style.display = 'none';
+            // Show the birthday message, cake, and gallery
+            messageElement.style.display = 'block';
+            cakeElement.style.display = 'block';
+            galleryElement.style.display = 'block';
+            bdayElement.style.display = 'block';
+            wishElement.style.display = 'block';
 
-        // Update the timer element
-        timerElement.innerHTML = `${days} day${days === 1 ? '' : 's'} ${hours} hour${hours === 1 ? '' : 's'} ${minutes} minute${minutes === 1 ? '' : 's'} ${seconds} second${seconds === 1 ? '' : 's'}`;
-      }
+        } else {
+            // Calculate days, hours, minutes, and seconds left
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Update the timer element
+            timerElement.innerHTML = `${days} day${days === 1 ? '' : 's'} ${hours} hour${hours === 1 ? '' : 's'} ${minutes} minute${minutes === 1 ? '' : 's'} ${seconds} second${seconds === 1 ? '' : 's'}`;
+        }
     }
 
     // Update the timer every second
@@ -73,6 +237,19 @@
 
     // Initial call to set up the timer
     updateTimer();
-  </script>
+
+    // JavaScript for the photo gallery
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Implement an action when a photo is clicked (e.g., open a larger version of the photo).
+            // You can use a lightbox library or custom JavaScript code for this.
+            // For simplicity, we'll just display an alert.
+            const message = item.getAttribute('data-message');
+            alert(message);
+        });
+    });
+</script>
 </body>
 </html>
